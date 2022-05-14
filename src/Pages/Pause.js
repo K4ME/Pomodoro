@@ -1,8 +1,25 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import Cronometro from '../Components/Cronometro'
 
 export default function Pause() {
+  const [workNumber, setWorkNumber] = useState()
+  const [pauseNumber, setPauseNumber] = useState()
+  const [sectionNumber, setSectionNumber] = useState()
+
+  const getobj = () => {
+    const { workNumber, pauseNumber, sectionNumber } = JSON.parse(
+      localStorage.getItem('pomodoro')
+    )
+    setWorkNumber(workNumber)
+    setPauseNumber(pauseNumber)
+    setSectionNumber(sectionNumber)
+  }
+
+  useEffect(() => {
+    getobj()
+  }, [])
+
   return (
     <>
       <header>
