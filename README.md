@@ -4,6 +4,8 @@
   Project developed to practice the knowledge acquired in reactjs🚀
 </p>
 
+Design by [DevChallenge](https://www.devchallenge.com.br/challenges/5efaa4faa9fcd44066b1b923/details)
+
 ## 👀 Images
 
 <p align="center">
