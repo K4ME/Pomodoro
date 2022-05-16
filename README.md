@@ -6,6 +6,8 @@
 
 Design by [DevChallenge](https://www.devchallenge.com.br/challenges/5efaa4faa9fcd44066b1b923/details)
 
+Running in [Pomodoro](https://pomodoro-1d2pb8e8w-k4me.vercel.app/)
+
 ## 👀 Images
 
 <p align="center">
