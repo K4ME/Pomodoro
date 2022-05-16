@@ -1,15 +1,39 @@
 # React Pomodoro
 
-Simples cronômetro criado em react.
-instalar dependências com `npm install` e rodar com `npm run start`
+<p align="center">
+  Project developed to practice the knowledge acquired in reactjs🚀
+</p>
 
-[x]Adicionar rotas.
-[]Adicionar icones (biblioteca ja importada).
-[]Criar componente de botão para voltar para tela Home.
-[x]Criar um componente que tenha botão de aumentar, diminuir e número. Receba como parametro o numero inicial.
-[]Estilizar telas de acordo com o projeto
+## 👀 Images
 
-## milha extra
+<p align="center">
+  <img alt="home page" src="./prints/home.png" width="360"/>
+  <img alt="work page" src="./prints/work.png" width="360"/>
+</p>
 
-[]salvar pomodoros no local storage.
-[]criar tela para mostrar pomodoros concluídos.
+<p align="center">
+  <img alt="pause page" src="./prints/pause.png" width="360"/>
+  <img alt="congrats page" src="./prints/congrats.png" width="360"/>
+</p>
+
+## 🚀 Technologies
+
+- [ReactJS](https://reactjs.org/)
+
+## 💻 Getting started
+
+First, clone the project:
+
+    git clone git@github.com:K4ME/Pomodoro.git
+
+Install the dependencies
+
+    npm install
+
+Run the code
+
+    npm run start
+
+<p align="center">
+  Made with 💜 by <a href="https://www.linkedin.com/in/guilhermemacrini/">Guilherme Macrini</a>
+</p>

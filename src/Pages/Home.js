@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
+import ContinueButton from '../Components/ContinueButton'
 import SelectNumber from '../Components/SelectNumber'
 
 export default function Home() {
@@ -7,17 +8,15 @@ export default function Home() {
   const [pauseNumber, setPauseNumber] = useState()
   const [sectionNumber, setSectionNumber] = useState()
 
-  console.log(workNumber)
-  console.log(pauseNumber)
-  console.log(sectionNumber)
-
   const handleSave = () => {
     localStorage.setItem(
       'pomodoro',
       JSON.stringify({
         workNumber: workNumber * 60,
         pauseNumber: pauseNumber * 60,
-        sectionNumber: sectionNumber * 60
+        sectionNumber: sectionNumber,
+        sectionActiveWorkNumber: 1,
+        sectionActivePauseNumber: 1
       })
     )
   }
@@ -61,21 +60,7 @@ export default function Home() {
           justifyContent: 'center'
         }}
       >
-        <Link to="/work">
-          <button
-            onClick={handleSave}
-            style={{
-              color: '#777da1',
-              backgroundColor: '#333853',
-              borderColor: '#777da1',
-              borderRadius: 16,
-              fontWeight: 'bold',
-              fontSize: 60
-            }}
-          >
-            Continuar
-          </button>
-        </Link>
+        <ContinueButton handle={handleSave} />
       </div>
     </>
   )

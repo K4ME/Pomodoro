@@ -1,15 +1,65 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
+import { useNavigate } from 'react-router-dom'
 import './Cronometro.css'
 
-function Cronometro({ initialTime, type }) {
+function Cronometro({ workTime, pauseTime, type, play }) {
   const color = type === 'Pause' ? 'yellow' : 'green'
-  const TEMPO_TOTAL = initialTime || 120
+  const TEMPO_TOTAL = type === 'Work' ? workTime : pauseTime
+
+  let navigate = useNavigate()
 
   let [tempoRestante, setTempoRestante] = useState(TEMPO_TOTAL)
 
+  const {
+    workNumber,
+    pauseNumber,
+    sectionNumber,
+    sectionActiveWorkNumber,
+    sectionActivePauseNumber
+  } = JSON.parse(localStorage.getItem('pomodoro'))
+
   const startTimer = () => {
     setTimeout(() => {
-      if (tempoRestante > 0) {
+      if (tempoRestante === 0 && type === 'Work') {
+        localStorage.setItem(
+          'pomodoro',
+          JSON.stringify({
+            workNumber: workNumber,
+            pauseNumber: pauseNumber,
+            sectionNumber: sectionNumber,
+            sectionActiveWorkNumber: sectionActiveWorkNumber + 1,
+            sectionActivePauseNumber: sectionActivePauseNumber
+          })
+        )
+        navigate(`/pause`)
+      }
+      if (tempoRestante === 0 && type === 'Pause') {
+        localStorage.setItem(
+          'pomodoro',
+          JSON.stringify({
+            workNumber: workNumber,
+            pauseNumber: pauseNumber,
+            sectionNumber: sectionNumber,
+            sectionActiveWorkNumber: sectionActiveWorkNumber,
+            sectionActivePauseNumber: sectionActivePauseNumber + 1
+          })
+        )
+        navigate(`/work`)
+      }
+      if (
+        sectionActiveWorkNumber === sectionNumber &&
+        sectionActivePauseNumber === sectionNumber
+      ) {
+        navigate(`/congrats`)
+      }
+      if (
+        tempoRestante > 0 &&
+        play &&
+        !(
+          sectionActiveWorkNumber === sectionNumber &&
+          sectionActivePauseNumber === sectionNumber
+        )
+      ) {
         setTempoRestante((tempoRestante -= 1))
       }
     }, 1000)

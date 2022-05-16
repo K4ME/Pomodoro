@@ -5,6 +5,7 @@ import './App.css'
 import Home from '../src/Pages/Home'
 import Work from '../src/Pages/Work'
 import Pause from '../src/Pages/Pause'
+import Congrats from '../src/Pages/Congrats'
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/work" element={<Work />} />
         <Route path="/pause" element={<Pause />} />
+        <Route path="/congrats" element={<Congrats />} />
         <Route path="*" element={<div>ERROR 404 - NÃO ENCONTRADO</div>} />
       </Routes>
     </>
